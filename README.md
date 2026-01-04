@@ -92,6 +92,12 @@ let client = try SynologyDriveClient(
 The package is generated from the official Synology Drive OpenAPI specification available at:
 https://office-suite-api.synology.com/specs/Synology-Drive/openapi_v1.json
 
+**⚠️ Important Note:** The current `Sources/SynologyDrive/openapi.json` file contains a placeholder specification with basic examples. To use the full Synology Drive API, you need to:
+
+1. Download the actual OpenAPI specification from the URL above
+2. Replace `Sources/SynologyDrive/openapi.json` with the downloaded file
+3. Run `swift build` to regenerate the client code with all available API endpoints
+
 For detailed API documentation, please refer to the official Synology Drive API documentation.
 
 ## Development
