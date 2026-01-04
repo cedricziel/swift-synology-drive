@@ -1,0 +1,82 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Synology Drive API",
+    "version": "1.0.0",
+    "description": "API for interacting with Synology Drive. Note: This is a placeholder spec. Replace with the actual spec from https://office-suite-api.synology.com/specs/Synology-Drive/openapi_v1.json"
+  },
+  "servers": [
+    {
+      "url": "https://your-synology-nas.local",
+      "description": "Synology NAS server"
+    }
+  ],
+  "paths": {
+    "/api/entry": {
+      "get": {
+        "operationId": "listEntries",
+        "summary": "List drive entries",
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "query",
+            "description": "Folder ID to list entries from",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntryListResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EntryListResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Entry"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Entry": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["file", "folder"]
+          }
+        }
+      }
+    }
+  }
+}
