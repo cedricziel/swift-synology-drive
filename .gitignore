@@ -1,0 +1,25 @@
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+xcuserdata/
+*.xcodeproj
+
+# macOS
+.DS_Store
+
+# Xcode
+DerivedData/
+*.xcworkspace
+*.xcuserstate
+
+# SPM Dependencies
+Packages/
+.build/
+
+# IDEs
+.vscode/
+.idea/
+
+# OpenAPI Generator
+.openapi-generator/
